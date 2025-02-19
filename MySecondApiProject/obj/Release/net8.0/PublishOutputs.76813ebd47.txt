@@ -1,0 +1,17 @@
+D:\Dotnet\MySecondApiProject\out\MySecondApiProject.exe
+D:\Dotnet\MySecondApiProject\out\out\web.config
+D:\Dotnet\MySecondApiProject\out\appsettings.Development.json
+D:\Dotnet\MySecondApiProject\out\appsettings.json
+D:\Dotnet\MySecondApiProject\out\out\appsettings.Development.json
+D:\Dotnet\MySecondApiProject\out\out\appsettings.json
+D:\Dotnet\MySecondApiProject\out\out\MySecondApiProject.deps.json
+D:\Dotnet\MySecondApiProject\out\out\MySecondApiProject.runtimeconfig.json
+D:\Dotnet\MySecondApiProject\out\MySecondApiProject.dll
+D:\Dotnet\MySecondApiProject\out\MySecondApiProject.deps.json
+D:\Dotnet\MySecondApiProject\out\MySecondApiProject.runtimeconfig.json
+D:\Dotnet\MySecondApiProject\out\MySecondApiProject.pdb
+D:\Dotnet\MySecondApiProject\out\Microsoft.AspNetCore.OpenApi.dll
+D:\Dotnet\MySecondApiProject\out\Microsoft.OpenApi.dll
+D:\Dotnet\MySecondApiProject\out\Swashbuckle.AspNetCore.Swagger.dll
+D:\Dotnet\MySecondApiProject\out\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Dotnet\MySecondApiProject\out\Swashbuckle.AspNetCore.SwaggerUI.dll

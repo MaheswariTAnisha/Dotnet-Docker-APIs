@@ -1,0 +1,6 @@
+@MySecondApiProject_HostAddress = http://localhost:5189
+
+GET {{MySecondApiProject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
