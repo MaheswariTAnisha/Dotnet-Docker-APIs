@@ -38,13 +38,13 @@ spec:
           ports:
             - containerPort: 9090
               protocol: TCP
-          resources:  # ⬅️ Fixed indentation
+          resources: 
             limits:
-              ephemeral-storage: 1Gi
+              ephemeral-storage: 512Mi
             requests:
-              cpu: 250m
-              memory: 1Gi
-              ephemeral-storage: 500Mi
+              cpu: 100m
+              memory: 512Mi
+              ephemeral-storage: 256Mi
 ---
 apiVersion: v1
 kind: Service
