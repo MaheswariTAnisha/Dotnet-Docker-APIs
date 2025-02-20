@@ -1,5 +1,10 @@
+using Microsoft.AspNetCore.HttpOverrides;
+
 var builder = WebApplication.CreateBuilder(args);
-builder.WebHost.UseUrls("http://*:9090"); 
+
+// Read dynamic port from environment (default: 9090)
+var port = Environment.GetEnvironmentVariable("PORT") ?? "9090";
+builder.WebHost.UseUrls($"http://*:{port}");
 // Add services to the container.
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
