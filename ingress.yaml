@@ -16,7 +16,7 @@ spec:
           service:
             name: my-api-service  # First service
             port:
-              number: 80  # Correct port based on your service
+              number: 8080  # Correct port based on your service
 
       - path: /hello
         pathType: Prefix
@@ -24,4 +24,4 @@ spec:
           service:
             name: my-second-api-service  # Second service
             port:
-              number: 90  # Correct port based on your service
+              number: 9090  # Correct port based on your service
