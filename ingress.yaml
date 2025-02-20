@@ -4,7 +4,7 @@ metadata:
   name: my-ingress
   namespace: default  # Change if needed
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /  # ✅ Keep or remove based on API behavior
 spec:
   ingressClassName: nginx
   rules:
@@ -16,7 +16,7 @@ spec:
           service:
             name: my-api-service  # First service
             port:
-              number: 80  # Correct port based on your service
+              number: 80  # ✅ Matches service port
 
       - path: /hello
         pathType: Prefix
@@ -24,4 +24,4 @@ spec:
           service:
             name: my-second-api-service  # Second service
             port:
-              number: 80  # Correct port based on your service
+              number: 80  # ✅ Matches service port
