@@ -16,7 +16,7 @@ spec:
         - name: my-api
           image: us-central1-docker.pkg.dev/civic-nation-450611-j2/mydotnetrepo/myapiproject:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 8080  # ✅ Keep this port for container
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -51,23 +51,23 @@ kind: Service
 metadata:
   name: my-api-service
 spec:
-  type: LoadBalancer
+  type: ClusterIP  # ✅ Change from LoadBalancer to ClusterIP
   selector:
     app: my-api
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 8080
+      port: 80        # ✅ Exposed to Ingress
+      targetPort: 8080  # ✅ Matches containerPort
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: my-second-api-service
 spec:
-  type: LoadBalancer
+  type: ClusterIP  # ✅ Change from LoadBalancer to ClusterIP
   selector:
     app: my-second-api
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 9090
+      port: 80        # ✅ Exposed to Ingress
+      targetPort: 9090  # ✅ Matches containerPort
