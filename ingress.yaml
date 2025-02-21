@@ -3,10 +3,10 @@ kind: Ingress
 metadata:
   name: my-ingress
   annotations:
-    kubernetes.io/ingress.class: "gce"  # Use Google Cloud Ingress
+    kubernetes.io/ingress.class: "gce"  # Use "nginx" if you're using NGINX Ingress Controller
 spec:
   rules:
-      http:
+    - http:  # <-- Fix: This should be part of a list
         paths:
           - path: /api1
             pathType: Prefix
