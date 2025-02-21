@@ -1,0 +1,31 @@
+steps:
+  # Build and push MyApiProject
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/civic-nation-450611-j2/mydotnetrepo/myapiproject:latest', './MyApiProject']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/civic-nation-450611-j2/mydotnetrepo/myapiproject:latest']
+
+  # Build and push MySecondApiProject
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/civic-nation-450611-j2/mydotnetrepo/mysecondapiproject:latest', './MySecondApiProject']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/civic-nation-450611-j2/mydotnetrepo/mysecondapiproject:latest']
+
+  # Deploy to GKE using deployment.yml
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['apply', '-f', 'deployment.yml']
+    env:
+      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=autopilot-cluster-1'
+
+  # Deploy Ingress
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['apply', '-f', 'ingress.yaml']
+    env:
+      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=autopilot-cluster-1'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
