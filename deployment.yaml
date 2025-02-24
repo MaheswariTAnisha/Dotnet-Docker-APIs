@@ -36,7 +36,7 @@ spec:
         - name: my-second-api
           image: us-central1-docker.pkg.dev/civic-nation-450611-j2/mydotnetrepo/mysecondapiproject:latest
           ports:
-            - containerPort: 80
+            - containerPort: 81
 ---
 apiVersion: v1
 kind: Service
@@ -61,5 +61,5 @@ spec:
     app: my-second-api
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
+      port: 81
+      targetPort: 81
