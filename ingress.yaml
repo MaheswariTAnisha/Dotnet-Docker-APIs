@@ -14,11 +14,11 @@ spec:
               service:
                 name: my-api-service
                 port:
-                  number: 8080
+                  number: 80
           - path: /api2
             pathType: Prefix
             backend:
               service:
                 name: my-second-api-service
                 port:
-                  number: 9090
+                  number: 90
