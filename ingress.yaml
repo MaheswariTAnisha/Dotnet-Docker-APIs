@@ -5,11 +5,15 @@ metadata:
   namespace: default
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - mydomain.com
+    secretName: my-tls-secret  # ✅ Use the created TLS secret
   rules:
-  - http:
+  - host: mydomain.com
+    http:
       paths:
       - path: /api1
         pathType: Prefix
@@ -24,4 +28,4 @@ spec:
           service:
             name: my-second-api-service
             port:
-              number: 80  # ✅ Match the service port (was 81 before)
+              number: 80
