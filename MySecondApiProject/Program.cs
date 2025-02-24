@@ -1,24 +1,32 @@
-using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Read dynamic port from environment (default: 9090)
-var port = Environment.GetEnvironmentVariable("PORT") ?? "9090";
-builder.WebHost.UseUrls($"http://*:{port}");
-// Add services to the container.
+// Set the port to 81 explicitly
+var port = "81"; 
+
+// Explicitly bind to all network interfaces (needed for Kubernetes)
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+
+// Add services
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure middleware
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-//app.UseHttpsRedirection();
+// Uncomment this if you need HTTPS redirection
+// app.UseHttpsRedirection();
 
 var summaries = new[]
 {
@@ -28,7 +36,7 @@ var summaries = new[]
 // Existing Weather Forecast API
 app.MapGet("/weatherforecast", () =>
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
+    var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -41,7 +49,7 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast")
 .WithOpenApi();
 
-// ✅ Add a New Simple API Endpoint
+// ✅ Added a new API endpoint for testing connectivity
 app.MapGet("/hello", () => "Hello from .NET API!").WithName("HelloAPI");
 
 app.Run();
