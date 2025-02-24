@@ -21,4 +21,4 @@ spec:
               service:
                 name: my-second-api-service
                 port:
-                  number: 90
+                  number: 80
