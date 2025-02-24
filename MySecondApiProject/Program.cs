@@ -7,7 +7,7 @@ using System;
 var builder = WebApplication.CreateBuilder(args);
 
 // Set the port to 81 explicitly
-var port = "81"; 
+var port = "80"; 
 
 // Explicitly bind to all network interfaces (needed for Kubernetes)
 builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
