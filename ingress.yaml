@@ -23,4 +23,4 @@ spec:
           service:
             name: my-second-api-service
             port:
-              number: 81
+              number: 80  # ✅ Match the service port (was 81 before)
