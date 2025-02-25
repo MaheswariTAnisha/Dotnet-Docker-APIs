@@ -8,11 +8,10 @@ metadata:
 spec:
   ingressClassName: nginx
   tls:
-  - hosts:
-    - mydomain.com
+  - hosts: 35.184.81.198
     secretName: my-tls-secret  # ✅ Use the created TLS secret
   rules:
-  - host: mydomain.com
+  - host: 35.184.81.198
     http:
       paths:
       - path: /api1
