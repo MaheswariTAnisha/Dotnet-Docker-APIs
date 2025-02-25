@@ -5,14 +5,10 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "gce"
 spec:
-  defaultBackend:
-    service:
-      name: my-api-service
-      port:
-        number: 80
+  ingressClassName: gce  # ✅ Preferred over annotation (optional)
   rules:
-    - http:  # Correct indentation
-        paths:  # This should be indented under 'http'
+    - http:
+        paths:
           - path: /api1
             pathType: Prefix
             backend:
