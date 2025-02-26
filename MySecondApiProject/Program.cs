@@ -29,7 +29,7 @@ var summaries = new[]
 };
 
 // Existing Weather Forecast API
-app.MapGet("/weatherforecast", () =>
+app.MapGet("/weatherforecas", () =>
 {
     var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
@@ -45,7 +45,7 @@ app.MapGet("/weatherforecast", () =>
 .WithOpenApi();
 
 // ✅ Added a new API endpoint for testing connectivity
-app.MapGet("/hello", () => "Hello from .NET API!").WithName("HelloAPI");
+// app.MapGet("/hello", () => "Hello from .NET API!").WithName("HelloAPI");
 
 app.Run();
 
