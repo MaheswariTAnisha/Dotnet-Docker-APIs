@@ -3,16 +3,15 @@ kind: Ingress
 metadata:
   name: my-ingress
   annotations:
-    # External Load Balancer  
-    kubernetes.io/ingress.class: "gce"  
-spec:                             
+    kubernetes.io/ingress.class: "gce"  # GKE-specific annotation
+spec:
   rules:
-    - http:
-        paths:           
-          - path: /api1
-            pathType: Prefix
-            backend:
-              service:
-                name: my-api-service
-                port: 
-                  number: 80                        
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: my-api-service
+            port:
+              number: 80
