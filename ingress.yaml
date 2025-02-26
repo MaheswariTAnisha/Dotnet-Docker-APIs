@@ -9,14 +9,14 @@ spec:
   rules:
   - http:
       paths:
-      - path: /first-api   # Routes to my-api
+      - path: /   # Routes to my-api
         pathType: Prefix
         backend:
           service:
             name: my-api-service
             port:
               number: 80
-      - path: /second-api  # Fix for my-second-api
+      - path: /      # Fix for my-second-api
         pathType: Prefix
         backend:
           service:
