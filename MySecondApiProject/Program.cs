@@ -29,7 +29,7 @@ var summaries = new[]
 };
 
 // Existing Weather Forecast API
-app.MapGet("/weatherforecas", () =>
+app.MapGet("/weatherforecast", () =>
 {
     var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
