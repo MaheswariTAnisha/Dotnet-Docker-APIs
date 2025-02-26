@@ -17,7 +17,7 @@ WORKDIR /app
 COPY --from=build /out ./
 
 # Expose the port your app will run on
-EXPOSE 9090
+EXPOSE 80
 
 # Start the app
 ENTRYPOINT ["dotnet", "MySecondApiProject.dll"]
