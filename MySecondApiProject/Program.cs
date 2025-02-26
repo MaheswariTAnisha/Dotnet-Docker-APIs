@@ -5,12 +5,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Set the port to 81 explicitly
-var port = "80"; 
-
-// Explicitly bind to all network interfaces (needed for Kubernetes)
-builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+builder.WebHost.UseUrls("http://0.0.0.0:80");
 
 // Add services
 builder.Services.AddEndpointsApiExplorer();
