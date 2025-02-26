@@ -4,20 +4,19 @@ metadata:
   name: my-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"  # GKE-specific annotation
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   rules:
   - http:
       paths:
-      - path: /   # Routes to my-api
+      - path: /first-api   # Routes to my-api
         pathType: Prefix
         backend:
           service:
             name: my-api-service
             port:
               number: 80
-      - path: /second-api(/|$)(.*)  # Fix for my-second-api
+      - path: /second-api  # Fix for my-second-api
         pathType: Prefix
         backend:
           service:
