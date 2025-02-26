@@ -25,7 +25,7 @@ if (app.Environment.IsDevelopment())
 // app.UseHttpsRedirection();
 
 // Simple Hello World API
-app.MapGet("/hello", () => "Hello from .NET API!")
+app.MapGet("/app2/hello", () => "Hello from .NET API!")
    .WithName("HelloAPI")
    .WithOpenApi();
 
