@@ -16,7 +16,7 @@ WORKDIR /app
 COPY --from=build /app/out ./
 
 # Expose port 8080 for the API
-EXPOSE 8080
+EXPOSE 80
 
 # Start the application
 CMD ["dotnet", "MyApiProject.dll"]
