@@ -1,6 +1,6 @@
 @MySecondApiProject_HostAddress = http://localhost:5189
 
-GET {{MySecondApiProject_HostAddress}}/hello/
+GET {{MySecondApiProject_HostAddress}}/app2/hello/
 Accept: application/json
 
 ###
